@@ -16,7 +16,8 @@ name: Build and Deploy Multi-Arch Docker Image
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ github.repository }}
+  # Use the repository name directly for Docker Hub
+  IMAGE_NAME: clairtonluz/syft
 
 jobs:
   build-and-push:

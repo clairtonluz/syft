@@ -64,7 +64,8 @@ The repository includes a GitHub Actions workflow that automatically builds and 
 
 To enable automated builds, configure these secrets in your GitHub repository:
 - `DOCKER_USERNAME`: Your Docker Hub username
-- `DOCKER_PASSWORD`: Your Docker Hub password or access token
+- `DOCKER_PASSWORD`: Your Docker Hub access token (recommended) or password
+  - For better security, use a [Docker Hub access token](https://docs.docker.com/security/for-developers/access-tokens/) instead of your password
 
 ## License
 
