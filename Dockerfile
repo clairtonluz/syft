@@ -2,12 +2,22 @@
 FROM alpine:latest
 
 # Install curl and ca-certificates for Syft installation and runtime
-# Alpine's package manager will be available in proper build environments
 RUN apk add --no-cache curl ca-certificates
 
-# Download and install Syft using the official installation script
-# The script will download the appropriate binary for the architecture
-RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+# Set Syft version (can be overridden at build time)
+ARG SYFT_VERSION=v1.18.1
+ARG TARGETOS=linux
+ARG TARGETARCH=amd64
+
+# Download and install Syft binary directly from GitHub releases
+# This is more secure than running an arbitrary script
+RUN set -ex && \
+    SYFT_BINARY="syft_${SYFT_VERSION#v}_${TARGETOS}_${TARGETARCH}.tar.gz" && \
+    curl -sSfL "https://github.com/anchore/syft/releases/download/${SYFT_VERSION}/${SYFT_BINARY}" -o /tmp/syft.tar.gz && \
+    tar -xzf /tmp/syft.tar.gz -C /tmp && \
+    mv /tmp/syft /usr/local/bin/syft && \
+    chmod +x /usr/local/bin/syft && \
+    rm -rf /tmp/*
 
 # Verify installation
 RUN syft version
