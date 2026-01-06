@@ -7,7 +7,7 @@ RUN apk add --no-cache curl ca-certificates
 # Set Syft version (can be overridden at build time)
 # Note: Update this version periodically to get the latest features and security fixes
 # Check https://github.com/anchore/syft/releases for available versions
-ARG SYFT_VERSION=v1.18.1
+ARG SYFT_VERSION=v1.39.0
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
 

@@ -49,7 +49,7 @@ docker build -t syft:local .
 To build with a specific Syft version:
 
 ```bash
-docker build --build-arg SYFT_VERSION=v1.18.1 -t syft:v1.18.1 .
+docker build --build-arg SYFT_VERSION=v1.39.0 -t syft:v1.39.0 .
 ```
 
 ### Multi-Architecture Build
