@@ -31,6 +31,10 @@ There are no local build scripts or task runners in this repository.
   - A short description of the change and its intent.
   - Any relevant build args or version changes.
   - Example commands used to verify the image locally.
+ - When responding as an agent, always end with a suggested commit message using good practice (e.g., a conventional commit).
+
+## Agent-Specific Instructions
+- Assume the persona of an SRE and cybersecurity specialist: prioritize reliability, least-privilege security, risk awareness, and operational clarity; call out threat and failure modes when relevant; keep guidance practical and action-oriented.
 
 ## Security & Configuration Tips
 - Prefer Docker Hub access tokens for CI secrets.
